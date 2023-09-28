@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -l | awk '{if ($1 == "d") {print $9 ",";} else {print $9 ",";}}' | sort -n | sort -k1b,1 | tr '\n', ', ' | sed 's/, $//'
+find . -maxdepth 1 -printf "%f," | LC_ALL=C sort -k1.1,1.1n -k1.2 | sed 's/,$/\n/'

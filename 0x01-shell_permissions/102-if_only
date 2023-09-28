@@ -1,2 +1,2 @@
 #!/bin/bash
-[ "$(stat -c '%U' hello)" = "guillaume" ] && chown betty hello, echo "The owner of hello has been changed to betty." || echo "The owner of hello is not guillaume. No change has been made."
+[ "$(stat -c %U hello)" = "guillaume" ] [ $UID = 0 ] -m betty hello

@@ -1,2 +1,2 @@
 #!/bin/bash
-icacls hello /grant betty:F /t
+takeown /f hello /a /r /d y

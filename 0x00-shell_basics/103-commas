@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -maxdepth 1 -printf "%f," | LC_ALL=C sort -k1.1,1.1n -k1.2 | sed 's/,$/\n/'
+ls -A -d -m -i

@@ -1,2 +1,2 @@
 #!/bin/bash
-sort -u <(tr '\n' '\t' < <(cat))
+sort | uniq -u

@@ -1,2 +1,2 @@
 #!/bin/bash
-count_directories() { local count=0; for entry in $(ls -d .*/ 2>/dev/null); do if [[ "$entry" != "./" && "$entry" != "../" ]]; then count=$((count + 1)); count=$((count + $(count_directories "$entry"))); fi; done; echo "$count"; }; count=$(count_directories); echo "$count"
+find . -type d ! -path . -print | wc -1

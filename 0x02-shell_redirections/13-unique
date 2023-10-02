@@ -1,4 +1,2 @@
 #!/bin/bash
-words=$(cat)
-unique_words=$(echo "$words" | tr '\n' '\t' | sort | uniq)
-echo "$unique_words" | tr '\t' '\n'
+sort -u <(cat)

@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$cat" | tr -d '[cC]'
+echo "cat" | tr -d '[cC]'

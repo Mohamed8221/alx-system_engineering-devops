@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $((WATER + STIR))
+print(int(os.environ['WATER'], base=WATER) + int(os.environ['STIR'], base=STIR), base=BESTCHOL)

@@ -1,2 +1,2 @@
 #!/bin/bash
-compgen -v | compgen -e | compgen -A function
+echo -e "Local Variables:\n$(set | grep -v 'BASH_FUNC')\n\nEnvironment Variables:\n$(printenv)\n\nFunctions:\n$(declare -F)"

@@ -1,2 +1,2 @@
 #!/bin/bash
-export "$PATH:/action" | sort -u
+export PATH="$PATH:/action" | sort -u

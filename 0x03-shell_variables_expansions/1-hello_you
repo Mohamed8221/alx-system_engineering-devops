@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Hello, ${whoami:-$LOGNAME}"
+echo "hello, $whoami!"

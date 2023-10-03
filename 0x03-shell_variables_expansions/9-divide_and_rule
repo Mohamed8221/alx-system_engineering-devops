@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $(awk "BEGIN { print ENVIRON[\"POWER\"] / ENVIRON[\"DIVIDE\"] }")

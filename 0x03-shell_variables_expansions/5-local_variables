@@ -1,2 +1,2 @@
 #!/bin/bash
-(compgen -v; compgen -e; compgen -A function) | sort
+compgen -v | printf "Local Variables:\n%s\n" $(compgen -e) | printf "%s\n\nEnvironment Variables:\n%s\n\nFunctions:\n%s\n" "$(compgen -A function)"

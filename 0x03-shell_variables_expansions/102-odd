@@ -1,2 +1,2 @@
 #!/bin/bash
-paste -d'\n' - - < <(cat -n) | grep -P "^\t" | cut -f2
+paste -d, - - | cut -d, -f1 

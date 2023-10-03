@@ -1,2 +1,2 @@
 #!/bin/bash
-cut 'NR % 2 == 1'
+paste -d'\n' - - < <(cat -n) | grep -P "^\t" | cut -f2

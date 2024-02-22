@@ -2,14 +2,14 @@
 # displays numbers from 1 to 20.
 
 H=0
-while [ $H -lt 13 ]
+while [ $H -le 12 ]
 do
     echo "hour: $H"
     M=1
-    while [ $M -lt 60 ]
+    while [ $M -le 59 ]
     do
         echo $M
-        ((M+=1))
+        ((M++))
     done
-    ((H+=1))
+    ((H++))
 done

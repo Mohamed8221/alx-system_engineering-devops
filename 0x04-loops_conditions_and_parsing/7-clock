@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# displays numbers from 1 to 20.
+
+H=0
+while [ $H -lt 13 ]
+do
+    echo "hour: $H"
+    M=1
+    while [ $M -lt 60 ]
+    do
+        echo $M
+        ((M++))
+    done
+    ((H++))
+done

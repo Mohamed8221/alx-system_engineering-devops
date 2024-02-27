@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # This script displays the PID
+# name contain word bash
 
-for pid in $(pgrep -f bash)
-do
-    echo "$pid $(cat /proc/$pid/comm)"
-done
+pgrep -l bash

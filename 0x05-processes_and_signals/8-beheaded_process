@@ -2,5 +2,5 @@
 # This script kills the 7-highlander process
 # shellcheck disable=SC2046
 
-pid=$(pgrep -f 7-highlander)
-kill -9 $pid
+kill -9 $(pgrep -f 7-highlander)
+

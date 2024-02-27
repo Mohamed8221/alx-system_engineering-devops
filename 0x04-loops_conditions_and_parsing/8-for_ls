@@ -1,4 +1,5 @@
 #!/bin/bash
+#Bash script that displays The content of the current directory
 for file in *;
 do
     echo "$file" | cut -f 2 -d '-'

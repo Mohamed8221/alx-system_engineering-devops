@@ -5,8 +5,8 @@
 echo $$ > /var/run/myscript.pid
 
 # Define what to do upon receiving SIGTERM and SIGINT signals
-trap 'echo "I hate the kill command"; exit' SIGTERM
-trap 'echo "Y U no love me?!"; exit' SIGINT
+trap 'echo "I hate the kill command"; exit' SIGINT
+trap 'echo "Y U no love me?!"; exit' SIGTERM
 trap 'rm /var/run/myscript.pid; exit' SIGQUIT
 
 # Display a message indefinitely

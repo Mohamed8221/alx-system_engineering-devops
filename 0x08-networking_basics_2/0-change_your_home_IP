@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Check if running as root (sudo)
 if [ "$EUID" -ne 0 ]; then
     echo "Please run this script with superuser privileges (sudo)."

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# This script configures a new Ubuntu machine to redirect /redirect_me to another page
+
+# Update the package lists for upgrades and new package installations
+apt-get update -y
+
+# Install nginx
+apt-get install -y nginx
+
+# Start nginx
+service nginx start
+
+# Create a configuration file for the redirection
+echo "server {
+    listen 80;
+    server_name localhost;
+    location = /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+}" > /etc/nginx/sites-available/default
+
+# Restart nginx
+service nginx restart

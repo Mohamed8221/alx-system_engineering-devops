@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This script installs nginx and configures it to serve a specific page
+
+# Update the package lists for upgrades and new package installations
+apt-get update -y
+
+# Install nginx
+apt-get install -y nginx
+
+# Start nginx
+service nginx start
+
+# Create a custom page
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+
+# Restart nginx
+service nginx restart

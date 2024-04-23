@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script sets up a domain name
+
+# Provide the domain name
+echo "yourdomain.tech"

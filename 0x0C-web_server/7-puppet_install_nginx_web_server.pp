@@ -1,38 +1,35 @@
-class nginx_install {
-    package { 'nginx':
-        ensure => installed,
+# Define the server configuration
+$server_config = 'server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html;
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
     }
+}'
 
-    file { '/var/www/html/index.nginx-debian.html':
-        ensure  => file,
-        content => 'Hello World!',
-        require => Package['nginx'],
-    }
-
-    file { '/etc/nginx/sites-available/default':
-        ensure  => file,
-        content => '
-            server {
-                listen 80;
-                server_name localhost;
-                location / {
-                    root /var/www/html;
-                    index index.nginx-debian.html;
-                }
-                location = /redirect_me {
-                    return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-                }
-            }
-        ',
-        notify  => Service['nginx'],
-        require => Package['nginx'],
-    }
-
-    service { 'nginx':
-        ensure    => running,
-        enable    => true,
-        subscribe => File['/etc/nginx/sites-available/default'],
-    }
+# Ensure Nginx is installed
+package { 'nginx':
+    ensure => present,
 }
 
-include nginx_install
+# Create the index.html file
+file { '/var/www/html/index.html':
+    ensure  => file,
+    content => 'Hello World!',
+    mode    => '0644',
+}
+
+# Create the server configuration file
+file { '/etc/nginx/sites-available/default':
+    ensure  => file,
+    content => $server_config,
+}
+
+# Restart the Nginx service
+exec { 'restart_nginx':
+    command => 'service nginx restart',
+    path    => ['/usr/sbin', '/usr/bin'],
+    require => File['/etc/nginx/sites-available/default'],
+}

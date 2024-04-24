@@ -10,6 +10,9 @@ apt-get install -y nginx
 # Start nginx
 service nginx start
 
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
 # Create a custom 404 page
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 

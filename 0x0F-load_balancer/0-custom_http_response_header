@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Configures Nginx to include a custom HTTP header
+
+# Install Nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+# Start Nginx
+sudo service nginx start
+
+# Get the hostname
+HOSTNAME=$(hostname)
+
+# Configure Nginx to include a custom HTTP header
+echo "server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    add_header X-Served-By $HOSTNAME;
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+}" | sudo tee /etc/nginx/sites-available/default
+
+# Restart Nginx
+sudo service nginx restart

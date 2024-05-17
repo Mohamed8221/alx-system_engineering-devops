@@ -37,6 +37,11 @@ frontend www-ssl
     bind *:443 ssl crt /etc/haproxy/certs/www.3awad.tech.pem
     reqadd X-Forwarded-Proto:\ https
     default_backend www-backend
+    bind *:80
+	mode http
 
 backend www-backend
-    server www-1 www.3awad.tech:80 check
+    balance roundrobin
+    option forwardfor
+    server 531103-web-01 100.25.14.244:80 check
+    server 531103-web-02 100.25.14.244:80 check
